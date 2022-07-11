@@ -1,0 +1,5 @@
+
+/* Debido al problema ocasionado por la función ngOnInit de que los estilos 
+se cargan antes que el contenido y que aun no se ha dado la teoría necesaría 
+para solventar ese problema, los estilos del componente Blog se encuentran en 
+la hoja de estilos principal del proyecto. */

@@ -1,0 +1,22 @@
+<main>
+    <div class="caja">
+        <div class="formulario">
+            <h2>Formulario de creación de noticias</h2>
+            <label for="titulo">Introduce el título de la noticia</label>
+            <input type="text" id="titulo" [(ngModel)]="titulo">
+            <label for="cuerpo">Introduce el contenido principal de la noticia</label>
+            <textarea name="" id="cuerpo" cols="30" rows="10" [(ngModel)]="cuerpo"></textarea>
+            <!-- <label for="fecha">Introduce la fecha</label>
+            <input type="datetime-local" name="" id=""> -->
+            <button (click)="guardarNoticia()" class="btn-form">PUBLICAR</button>
+        </div>
+        <hr>
+        <section class="publicaciones">
+            <h2 class="publicaciones-title">Publicaciones creadas</h2>
+            <ul [innerHTML]="content">
+                <!-- Carga de contenido mediante blog.components.ts -->
+                
+            </ul>
+        </section>
+    </div>
+</main>
