@@ -12,12 +12,12 @@ const LOREM: string = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
 'sodales metus. Nunc vulputate mollis aliquet. Fusce et faucibus orci. Duis ornare sem sapien, interdum dignissim lorem porta vitae. '+
 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. ';
 
-
 @Component({
   selector: 'app-blog',
   templateUrl: './blog.component.html',
   styleUrls: ['./blog.component.css']
 })
+
 export class BlogComponent implements OnInit {
 
   arrNoticias: Noticia[] = [];
@@ -30,7 +30,7 @@ export class BlogComponent implements OnInit {
   
   constructor() { 
     this.arrNoticias = [
-      { titulo: 'Lorem ipsum 1', cuerpo: LOREM , fecha: this.fecha, img: "https://picsum.photos/400/400?random=1" },
+      { titulo: 'Lorem ipsum 1', cuerpo: LOREM, fecha: this.fecha, img: "https://picsum.photos/400/400?random=1" },
       { titulo: 'Lorem ipsum 2', cuerpo: LOREM, fecha: this.fecha, img: "https://picsum.photos/400/400?random=2" }
     ]
   }
@@ -89,7 +89,5 @@ export class BlogComponent implements OnInit {
     else{
       alert("Por favor, rellene todos los campos")
     }
-    
   }
-
 }
