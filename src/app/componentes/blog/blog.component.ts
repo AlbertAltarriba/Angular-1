@@ -1,6 +1,18 @@
 import { Component, OnInit } from '@angular/core';
 import { Noticia } from 'src/app/interfaces/noticia.interface';
 
+const LOREM: string = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi dictum, nisl eget blandit tincidunt, '+
+'metus dui faucibus ipsum, nec volutpat metus nibh id risus. Ut ligula felis, convallis eu venenatis vitae, elementum non felis.'+
+' Quisque vehicula, lacus et ultrices porta, eros nisi pellentesque tellus, ut mollis elit purus nec libero.'+
+' Suspendisse vehicula libero quam. Nullam convallis felis sed nunc semper, eget aliquet sapien efficitur. In lectus nisi, '+
+'interdum sed dignissim a, molestie vitae felis. Donec volutpat maximus sapien vel euismod. Quisque mattis ante purus, at '+
+'fermentum augue vehicula eu. Nunc ut scelerisque metus, sit amet commodo urna. Vestibulum lacinia dui id elit congue, vel '+
+'ultrices tellus varius. Curabitur eget congue elit. Praesent tempor vestibulum nisl sed elementum. Nulla vulputate nulla tortor, '+
+'in rhoncus enim consequat ac. Ut a aliquet nunc, ut scelerisque sem. Nunc ipsum lacus, malesuada aliquam egestas vel, vulputate '+
+'sodales metus. Nunc vulputate mollis aliquet. Fusce et faucibus orci. Duis ornare sem sapien, interdum dignissim lorem porta vitae. '+
+'Lorem ipsum dolor sit amet, consectetur adipiscing elit. ';
+
+
 @Component({
   selector: 'app-blog',
   templateUrl: './blog.component.html',
@@ -8,19 +20,18 @@ import { Noticia } from 'src/app/interfaces/noticia.interface';
 })
 export class BlogComponent implements OnInit {
 
-
   arrNoticias: Noticia[] = [];
   titulo: string = "";
   cuerpo: string = "";
   fecha: string = `${new Date().toLocaleDateString()} - ${new Date().toLocaleTimeString()}` 
-  id: number = 3;
+  id_img: number = 3;
   img: string = "";
   content: string = "";
   
   constructor() { 
     this.arrNoticias = [
-      { titulo: 'Noticia 1', cuerpo: 'Cuerpo noticia 1', fecha: this.fecha, img: "https://picsum.photos/400/400?random=1" },
-      { titulo: 'Noticia 2', cuerpo: 'Cuerpo noticia 2', fecha: this.fecha, img: "https://picsum.photos/400/400?random=2" }
+      { titulo: 'Lorem ipsum 1', cuerpo: LOREM , fecha: this.fecha, img: "https://picsum.photos/400/400?random=1" },
+      { titulo: 'Lorem ipsum 2', cuerpo: LOREM, fecha: this.fecha, img: "https://picsum.photos/400/400?random=2" }
     ]
   }
 
@@ -29,7 +40,7 @@ export class BlogComponent implements OnInit {
   }
 
   actualizarImg(): void{
-    this.img = `https://picsum.photos/400/400?random=${this.id}`
+    this.img = `https://picsum.photos/400/400?random=${this.id_img}`
   }
 
   actualizarFecha(): void{
@@ -39,9 +50,6 @@ export class BlogComponent implements OnInit {
 
   cargarNoticias(): void{
     this.content = "";
-    this.actualizarImg();
-    
-    this.id++;
     this.arrNoticias.forEach(noticia => this.content += 
        `<li>
        <article>
@@ -58,11 +66,13 @@ export class BlogComponent implements OnInit {
        </article>
    </li>`
         )
-
   }
 
   guardarNoticia(): void{
     this.actualizarFecha();
+    this.actualizarImg();
+    this.id_img++;
+
     let noticia: Noticia = {
       titulo: this.titulo,
       cuerpo: this.cuerpo,

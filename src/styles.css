@@ -7,15 +7,14 @@
 }
 
 .formulario{
-
     margin: 70px;
     display: flex;
     flex-direction: column;
     gap: 20px;
 }
 
-#title{
-    margin-bottom: 30px;
+.titulo-form, .cuerpo-form{
+    padding: 10px;
 }
 
 .btn-form{
